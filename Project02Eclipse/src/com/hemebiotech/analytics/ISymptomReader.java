@@ -1,5 +1,5 @@
 /*
- * initial code  and delete comments done by Hilde
+ * initial code  and delete comments modifications done by Hilde
  * on the AnalyticsCounter Class
  */
 
