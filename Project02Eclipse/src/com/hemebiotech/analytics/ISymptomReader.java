@@ -1,3 +1,8 @@
+/*
+ * initial code  and delete comments done by Hilde
+ * on the AnalyticsCounter Class
+ */
+
 package com.hemebiotech.analytics;
 
 import java.util.List;

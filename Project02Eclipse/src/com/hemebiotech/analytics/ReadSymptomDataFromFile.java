@@ -1,3 +1,9 @@
+
+/*
+ * initial code  and delete comments modifications done by Hilde
+ * on the AnalyticsCounter Class
+ */
+
 package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
