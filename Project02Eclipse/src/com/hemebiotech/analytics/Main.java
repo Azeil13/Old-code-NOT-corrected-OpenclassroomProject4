@@ -1,6 +1,4 @@
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -75,64 +73,25 @@ public class Main {
 	 * et génère un fichier result.out avec les lignes que contient cette liste.
 	 */
 	//Create a  printFile(BufferedWriter writer) Method
-	List<String> GetSymptoms ();
-	public List<String> printFile(BufferedWriter writer) {   //BufferedWriter function native of Java
-				try {
-			while (writer.ready()) {
-			       getSymptoms.add(writer.writeLine()); // add in the List what it is writing each sentence
+	public void printFile(List<String> symptoms) throws IOException {   //method printfile no return
+		FileWriter resultsDocument = new FileWriter("result.out"); // create a new File 
+			for (String symptom: symptoms) //create a new variable loop for line by line symptom	
+			{
+				try {		
+				resultsDocument.write(symptom); // put in the file the newline 	
+				} catch (IOException e) {
+					 e.printStackTrace();
+				}
+				
 			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return getSymptoms;
+			
+			resultsDocument.close();
+		
 	  }
 	
-	 //génère un fichier result.out avec les lignes que contient cette liste.
-	try {
-
-		 String content = "result.out"; //"Ceci est le contenu ajouté au fichier"
-
-		 File file = new File("result.out");
-
-		 // créer le fichier s'il n'existe pas
-		 if (!file.exists()) {
-		 file.createNewFile();
-		 }
-
-		 FileWriter fw = new FileWriter(file.getAbsoluteFile());
-		 BufferedWriter bw = new BufferedWriter(fw);
-		 bw.write(content);
-		 bw.close();
-
-		 System.out.println("Modification terminée!+ result.out");
-
-		 } catch (IOException e) {
-		 e.printStackTrace();
-		 }
+	 
 	 
 	
-	
-	
-	// next generate output for File result.out
-			FileWriter writer = new FileWriter ("result.out");
-			writer.close();
-			
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//Create a  printList(List<String> listSymptoms)Method
-	public void printList(List<String> listSymptoms){
-	    System.out.println("The content of the List Symptoms  are: ");
-	    }
 	
 	//Create a closeBR(BufferedReader reader)  Method
 	public void closeBR(BufferedReader reader) {
@@ -142,15 +101,20 @@ public class Main {
 	
 	
 	
-	//Inside main, call the methods 
+
 	
 	// Inside main, call the methods on the br object
 	public static void main(String[] args) {
 	  Main br = new Main();    // Create a br object
 	  BufferedReader mybr =br.openFile("C:\\Users\\hilde\\git\\Openclassroom_Project4_March2023\\Old-code-NOT-corrected-OpenclassroomProject4\\Project02Eclipse\\symptoms.txt");                // Call the openFile(String filename) method
 	  List<String> symptoms = br.readFile(mybr);   // Call the readFile(BufferedReader reader) method
-	  br.printList(List<String> listSymptoms)	   // Call the printList(List<String> listSymptoms) method
-	  br.closeBR(BufferedReader reader)		
+	  try {
+		br.printFile(symptoms);
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}	   // Call the printList(symptoms) method
+	  br.closeBR(mybr);	 // close mybr	
 	  
 	}
 }
