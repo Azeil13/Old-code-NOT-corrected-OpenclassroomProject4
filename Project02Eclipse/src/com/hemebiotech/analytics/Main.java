@@ -147,7 +147,7 @@ public class Main {
 	// Inside main, call the methods on the br object
 	public static void main(String[] args) {
 	  Main br = new Main();    // Create a br object
-	  BufferedReader mybr =br.openFile("C:\\Users\\hilde\\OneDrive\\Desktop\\OpenClassroom- Project 4\\Project\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application-master\\Project02Eclipse\\symptoms.txt");                // Call the openFile(String filename) method
+	  BufferedReader mybr =br.openFile("C:\\Users\\hilde\\git\\Openclassroom_Project4_March2023\\Old-code-NOT-corrected-OpenclassroomProject4\\Project02Eclipse\\symptoms.txt");                // Call the openFile(String filename) method
 	  List<String> symptoms = br.readFile(mybr);   // Call the readFile(BufferedReader reader) method
 	  br.printList(List<String> listSymptoms)	   // Call the printList(List<String> listSymptoms) method
 	  br.closeBR(BufferedReader reader)		

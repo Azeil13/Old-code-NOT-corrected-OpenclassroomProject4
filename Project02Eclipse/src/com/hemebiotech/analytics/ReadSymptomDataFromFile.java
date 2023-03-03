@@ -81,7 +81,7 @@ public class ReadSymptomDataFromFile {
 	 public static void main(String args[ ]) throws IOException {
 	      //Creating a File object for directory
 	 
-	 File Symptoms = new File("C:\\Users\\hilde\\OneDrive\\Desktop\\OpenClassroom- Project 4\\Project\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application-master\\Project02Eclipse\\symptoms.txt");
+	 File Symptoms = new File("C:\\Users\\hilde\\git\\Openclassroom_Project4_March2023\\Old-code-NOT-corrected-OpenclassroomProject4\\Project02Eclipse\\symptoms.txt");
      //List of the folder Symptomes.txt
      File filesList[] = Symptoms.listFiles( );
       System.out.println("List of symptoms");
@@ -93,7 +93,7 @@ public class ReadSymptomDataFromFile {
           // Retourne le BufferedReader
     	  try  
           {   
-              File file_open=new File("C:\\Users\\hilde\\OneDrive\\Desktop\\OpenClassroom- Project 4\\Project\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application-master\\Project02Eclipse\\symptoms.txt");   
+              File file_open=new File("C:\\Users\\hilde\\git\\Openclassroom_Project4_March2023\\Old-code-NOT-corrected-OpenclassroomProject4\\Project02Eclipse\\symptoms.txt");   
               BufferedReader br=new BufferedReader(new FileReader(file_open));  
               System.out.println("The content of the file are: ");  
               int ch=0;  
@@ -125,7 +125,8 @@ public static List<String> readFile(BufferedReader reader) {
 	BufferedReader reader;
 
 	try {
-		reader = new BufferedReader(new FileReader("C:\\Users\\hilde\\OneDrive\\Desktop\\OpenClassroom- Project 4\\Project\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application-master\\Project02Eclipse\\symptoms.txt"));
+		reader = new BufferedReader(new FileReader("C:\\Users\\hilde\\git\\Openclassroom_Project4_March2023\\Old-code-NOT-corrected-OpenclassroomProject4\\Project02Eclipse\\symptoms.txt"
+				+ ""));
 		String line = reader.readLine();
 
 		while (line != null) {
