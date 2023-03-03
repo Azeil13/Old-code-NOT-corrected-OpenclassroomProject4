@@ -1,70 +1,22 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
+
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
-import java.io.FileReader;
+
 
 /**
 * 
-* This is the class SymptomsReader which implements Interface ISymtomsReader
+* This is the class SymptomsReader which implements Interface ISymtomWriter
 * 
 * @author hilde Jacobi
 * @version  Commit 7  Build March 3, 2023.
 *
 */
 
-public class SymptomReader implements ISymptomReader{
-
-
-	//Create a openFile(String filename) Method
-	/**
-	 * open a file and return BufferReader
-	 * @param filename it is the path of the file to open in the buffer
-	 * @return return a BufferReader of all the lines of the file
-	 */
-	public BufferedReader openFile(String filename) {
-		System.out.println("Open the file:"+ filename);
-		BufferedReader reader;
-		try {
-			reader = new BufferedReader (new FileReader(filename));
-			return reader;
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-
-	//Create a readFile(BufferedReader reader) Method
-	/**
-	 *
-	 * @param reader create read File Method
-	 * @return list of string File of symptoms
-	 */
-	public List<String> readFile(String filePath) { //method BufferedReader native of Java
-		BufferedReader reader =openFile(filePath);
-
-		List<String> symptoms = new ArrayList<>(); // create a List of string with variable symptoms
-
-		try {
-			while (reader.ready()) {
-				symptoms.add(reader.readLine()); // add in the List what it is reading each sentence
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return symptoms;
-	}
-
-
+public abstract class SymptomWriter implements ISymptomWriter{
 	/*
 	 * 
 	 * Write printFile method
@@ -87,13 +39,15 @@ public class SymptomReader implements ISymptomReader{
 				resultsDocument.write(symptomKey+":"+sortedSymptoms.get(symptomKey)); // put in the file the newline
 			} catch (IOException e) {
 				e.printStackTrace();
-			}
+			
 
 		}
 
 		resultsDocument.close();
 
-	
+	}
+
+
 
     
 	
@@ -104,7 +58,6 @@ public class SymptomReader implements ISymptomReader{
 
 	String[] symptoms;
 	for(String symptom : symptoms){
-		Map<String, Integer> sortedSymptoms1;
 		if(!sortedSymptoms.containsKey(symptom)){
 			// I initialize my counter for the symptom if it is the first time that I see it
 			sortedSymptoms.put(symptom, 0);
@@ -117,8 +70,7 @@ public class SymptomReader implements ISymptomReader{
 				}
 				
 				try {
-					SymptomReader reader;
-					Map<String, Integer> sortedSymptoms1;
+					SymptomWriter reader;
 					reader.printFile(sortedSymptoms, "C:\\Users\\hilde\\git\\Openclassroom_Project4_March2023\\Old-code-NOT-corrected-OpenclassroomProject4\\Project02Eclipse\\symptoms.txt");
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -171,3 +123,6 @@ public class SymptomReader implements ISymptomReader{
 
 
 }
+
+
+

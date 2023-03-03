@@ -1,9 +1,9 @@
 package com.hemebiotech.analytics;
 
 
-import java.io.IOException;
+
 import java.util.List;
-import java.util.Map;
+
 
 
 
@@ -20,6 +20,6 @@ public interface ISymptomReader {
 	
 	public List<String> readFile(String filePath);
 
-	public void printFile(Map<String,Integer> sortedSymptoms ,String outputPath) throws IOException;
+	
 }
 
