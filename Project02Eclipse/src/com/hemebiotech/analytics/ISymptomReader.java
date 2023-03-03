@@ -12,7 +12,7 @@ import java.util.List;
  * This is the Interface ISymptomReader 
  * 
  * @author hilde Jacobi
- * @version  Commit 6  Build February 23, 2023.
+ * @version  Commit 8 Build March 3, 2023.
  *
  */
 
