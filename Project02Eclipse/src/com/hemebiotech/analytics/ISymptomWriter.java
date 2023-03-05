@@ -9,12 +9,12 @@ import java.util.Map;
  * This is the Interface ISymptomWriter
  * 
  * @author hilde Jacobi
- * @version  Commit 8  Build March 3, 2023.
+ * @version  Commit 9  Build March 4, 2023.
  *
  */
 
  
 public interface ISymptomWriter {
-	public void printFile(Map<String,Integer> sortedSymptoms ,String outputPath) throws IOException;
+	public void printFile(Map<String,Integer> sortedSymptoms,String outputPath) throws IOException;
 
 }

@@ -1,9 +1,8 @@
 package com.hemebiotech.analytics;
 
 
-
+import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 import java.util.TreeMap;
 
 
@@ -13,7 +12,7 @@ import java.util.TreeMap;
 * This is the main class Main 
 * 
 * @author hilde Jacobi
-* @version Commit 8 Build March 3, 2023.
+* @version Commit 9 Build March 4, 2023.
 *
 */
 public class Main {
@@ -24,13 +23,17 @@ public class Main {
 	 */
 	public static void main(String[] args) { 
 		ISymptomReader reader = new SymptomReader(); 
-		List<String> symptoms = reader.readFile("C:\\Users\\hilde\\git\\Openclassroom_Project4_March2023\\Old-code-NOT-corrected-OpenclassroomProject4\\Project02Eclipse\\symptoms.txt"); // Call the readFile(BufferedReader reader) method
+		List<String> symptoms = reader.readFile("symptoms.txt"); 
 
-
-	
 		
 		System.out.println(symptoms.size());
-		Map<String,Integer> sortedSymptoms = new TreeMap<String,Integer>();
+		TreeMap<String,Integer> sortedSymptoms = reader.sortSymptoms(symptoms);
+		ISymptomWriter writer = new SymptomWriter();
+		try {
+			writer.printFile(sortedSymptoms,"result.out");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 }

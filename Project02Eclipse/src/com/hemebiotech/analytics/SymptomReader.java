@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.io.FileReader;
 
 /**
@@ -15,12 +16,11 @@ import java.io.FileReader;
 * This is the class SymptomsReader which implements Interface ISymtomsReader
 * 
 * @author hilde Jacobi
-* @version  Commit 8  Build March 3, 2023.
+* @version  Commit 9  Build March 4, 2023.
 *
 */
 
 public class SymptomReader implements ISymptomReader{
-
 
 	
 	/**
@@ -28,7 +28,7 @@ public class SymptomReader implements ISymptomReader{
 	 * @param filename it is the path of the file to open in the buffer
 	 * @return return a BufferReader of all the lines of the file
 	 */
-	public BufferedReader openFile(String filename) {
+	private BufferedReader openFile(String filename) {
 		System.out.println("Open the file:"+ filename);
 		BufferedReader reader;
 		try {
@@ -51,7 +51,7 @@ public class SymptomReader implements ISymptomReader{
 	
 	public List<String> readFile(String filePath) { 
 		BufferedReader reader =openFile(filePath);
-
+		
 		List<String> symptoms = new ArrayList<>(); 
 
 		try {
@@ -64,102 +64,26 @@ public class SymptomReader implements ISymptomReader{
 		}
 		return symptoms;
 	}
-
-
-	
-	
-	
-	/**
-	 *
-	 * @param Map<String,Integer> sortedSymptoms : map of the symptoms
-	 * @throws IOException
-	 */
-	public void printFile(Map<String,Integer> sortedSymptoms ,String outputPath) throws IOException { 
-		FileWriter resultsDocument = new FileWriter(outputPath); 
-		
-		for (String symptomKey: sortedSymptoms.keySet()) 
-		{
-			try {
-				System.out.println(symptomKey+":"+sortedSymptoms.get(symptomKey));
-				resultsDocument.write(symptomKey+":"+sortedSymptoms.get(symptomKey)); 
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
-		}
-
-		resultsDocument.close();
-
-	
-
-    
-	
-	
-	
-	         
-
-	String[] symptoms;
-	for(String symptom : symptoms){
-		Map<String, Integer> sortedSymptoms1;
-		if(!sortedSymptoms.containsKey(symptom)){
-			
-			sortedSymptoms.put(symptom, 0);
-		}
-		
-					int nbSymptomFound = sortedSymptoms.get(symptom);
-					
+ 
+	 /**
+	  * method put the symptoms in alphabetic order + count them 
+	  * @param symptoms  List of the symptoms 
+	  * @return    Treemap of the symptoms count + ordering
+	  */
+	  public TreeMap<String,Integer> sortSymptoms(List<String> symptoms){
+		     TreeMap<String, Integer> sortedSymptoms = new TreeMap<String,Integer>();
+		     for(String symptom : symptoms){
+		    	 
+				 if(!sortedSymptoms.containsKey(symptom)){
+					sortedSymptoms.put(symptom,1);
+				 }
+				 else {
+				 int nbSymptomFound = sortedSymptoms.get(symptom);
+							
 					sortedSymptoms.put(symptom, nbSymptomFound+1);
-
-				}
-				
-				try {
-					SymptomReader reader;
-					Map<String, Integer> sortedSymptoms1;
-					reader.printFile(sortedSymptoms, "C:\\Users\\hilde\\git\\Openclassroom_Project4_March2023\\Old-code-NOT-corrected-OpenclassroomProject4\\Project02Eclipse\\symptoms.txt");
-				} catch (Exception e) {
-					e.printStackTrace();
-				
-					
-					
-					
-			        try {
-			  
-			           
-			            File results = new File("C:\\Users\\hilde\\git\\Openclassroom_Project4_March2023\\Old-code-NOT-corrected-OpenclassroomProject4\\Project02Eclipse\\symptoms.txt");
-			  
-			            
-			            String path = results.getPath();
-			  
-			            
-			            System.out.println("File path : " + path);
-			        }
-			        catch (Exception e1) {
-			            System.err.println(e1.getMessage());
-			        }
-
-			        
-					  
-			       
-			        try {
-			  
-			           
-			            File symptoms1 = new File("C:\\Users\\hilde\\git\\Openclassroom_Project4_March2023\\Old-code-NOT-corrected-OpenclassroomProject4\\Project02Eclipse\\symptoms.txt");
-			  
-			            
-			            String path = symptoms1.getPath();
-			  
-			            
-			            System.out.println("File path : " + path);
-			        }
-			        catch (Exception e2) {
-			            System.err.println(e2.getMessage());
-			        }
-
-
-				
-				
-				}
+				 }
 			}
-
+		     return sortedSymptoms;
+	  }
 
 }
