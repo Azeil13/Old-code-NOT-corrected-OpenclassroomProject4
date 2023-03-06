@@ -16,7 +16,7 @@ import java.io.FileReader;
 * This is the class SymptomsReader which implements Interface ISymtomsReader
 * 
 * @author hilde Jacobi
-* @version  Commit 10  Build March 5, 2023.
+* @version  Commit 11  Build March 5, 2023.
 *
 */
 
@@ -71,7 +71,6 @@ public class SymptomReader implements ISymptomReader{
 	  * @return    Treemap of the symptoms count + ordering
 	  */
 	  public TreeMap<String,Integer> sortSymptoms(List<String> symptoms){
-                          //the elements which are the symptoms in the TreeMap are stored in a sorted order
 		     TreeMap<String, Integer> sortedSymptoms = new TreeMap<String,Integer>();
 		     for(String symptom : symptoms){
 		    	 
