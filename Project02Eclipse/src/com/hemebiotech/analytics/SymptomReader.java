@@ -1,22 +1,19 @@
 package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.TreeMap;
 import java.io.FileReader;
 
 /**
 * 
 * This is the class SymptomsReader which implements Interface ISymtomsReader
-* 
+* The class SymptomsReader has different methods that provide read symptoms file and sorting it
 * @author hilde Jacobi
-* @version  Commit 11  Build March 5, 2023.
+* @version  Commit 12  Build March 6, 2023.
 *
 */
 
@@ -44,7 +41,7 @@ public class SymptomReader implements ISymptomReader{
 
 	
 	/**
-	 *
+	 *method readFile read the buffer and put them in the string 
 	 * @param reader create read File Method
 	 * @return list of string File of symptoms
 	 */
